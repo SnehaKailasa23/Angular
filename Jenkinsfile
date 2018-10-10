@@ -22,8 +22,8 @@ pipeline {
 		{
 		    sh """
 			   npm install 
-			   ng build 
-			   ng serve
+			   sudo ng build 
+			   sudo ng serve
 			"""
         }
 	}
@@ -40,8 +40,8 @@ pipeline {
 		{
 		    sh """
 			   npm install 
-			   ng build 
-			   ng serve
+			   sudo ng build 
+			   sudo ng serve
 			"""
         }
 	}
