@@ -39,7 +39,7 @@ pipeline {
 		{
 		    sh """
 			   npm install 
-			   sudo ng build 
+			   sudo ng build --prod
 			"""
         }
 	}
