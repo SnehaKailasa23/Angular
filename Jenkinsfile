@@ -42,6 +42,7 @@ pipeline {
          ls
 			   npm install 
 			   sudo ng build 
+         ls
 //			   sudo ng serve
 			"""
         }
