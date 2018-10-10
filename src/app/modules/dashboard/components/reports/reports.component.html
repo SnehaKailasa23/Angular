@@ -1,0 +1,48 @@
+<div class="dashboardContainer">
+    <div class="main_content dashboardMainContent" [ngClass]="{'dashboardFilterOpen': isActive}">
+        <div class="main_heading"><div class="pull-left">
+      <h2>{{titleDashboard}}
+          <div class="pull-right" *ngIf="individualDashboard">
+          </div>
+
+      </h2>
+    </div></div>
+        <div class="main_body">                
+	        <div class="tabsCarousel">
+                
+                <div id="DashboardTabs" class="carousel slide" data-interval="false">
+                    
+                    
+                    <div class="carousel-inner">
+                       <div class="item active" style="text-align:center">
+                        Reports : <select class="form-control" id="reports" [(ngModel)]="embeddedUrlOption" (ngModelChange)="onChange($event)"   >
+                            <ng-container *ngFor="let reports1 of reports">
+                                <option [ngValue]="reports1"  >
+                                    {{reports1.name}}
+                                </option>
+                              </ng-container>
+                         </select>
+                         <br>
+                         <input placeholder="Embedded URL"  class="form-control double_value" type="text" value="" id="embeddedUrlId" [(ngModel)]="embeddedUrl">            
+                        <br>
+                        <input type="checkbox" [checked]="showFilterPanel" (change)="showFilterPanel = !showFilterPanel" /> Show Filter Panel
+                        <input type="checkbox" [checked]="showNavigationBar" (change)="showNavigationBar = !showNavigationBar" /> Show Navigation Bar
+                        <div class="">
+            <a (click)= "renderReport()" class="btn btn-info" id="cancelConfiguration">Submit</a>
+            
+        </div>
+                        <div id="container_powerbi_report" style="width:100%;height:800px;display: inline-block;"></div>
+                      </div>                                   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dashboardFilerSidebar" id="DashboardFilerSidebar" [ngClass]="{'dashboardFilterOpen': isActive}">
+        <div class="filterSidebarTitle" (click)="openFilterPane()"><i class="fa fa-angle-down filter_open_icon"></i><span class="filter_lable">FILTERS</span><a class='filter_close_icon add_row filter_reset' (click)="resetFilters(true);$event.stopPropagation()">RESET</a><i class="fa fa-times  filter_close_icon" id="Filter_close_icon" aria-hidden="true" (click)="closeFilterPane();$event.stopPropagation()"></i>
+        </div>
+        <div class="filterExpandContent">
+                
+        </div>
+    </div>
+  
