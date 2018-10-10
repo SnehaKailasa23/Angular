@@ -21,8 +21,8 @@ pipeline {
 		steps 
 		{
 		    sh """
-			   npm install
-			   ng build 
+			   npm install --no-color
+			   ng build --no-color
 			"""
         }
 	}
@@ -38,8 +38,8 @@ pipeline {
 		steps 
 		{
 		    sh """
-			   npm install
-			   ng build 
+			   npm install --no-color
+			   ng build --no-color
 			"""
         }
 	}
