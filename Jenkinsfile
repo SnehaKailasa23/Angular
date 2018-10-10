@@ -1,5 +1,6 @@
 pipeline {
   agent any
+    
   stages {  
     stage('Clone') 
 	{
@@ -20,6 +21,7 @@ pipeline {
 		steps 
 		{
 		    sh """
+			   npm install
 			   ng build 
 			"""
         }
@@ -36,6 +38,7 @@ pipeline {
 		steps 
 		{
 		    sh """
+			   npm install
 			   ng build --prod
 			"""
         }
