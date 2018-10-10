@@ -43,6 +43,7 @@ export class ReportsComponent implements OnInit {
     embeddedUrlOption;
     reportId;
     reportName;
+    individualDashboard=false;
   ngOnInit() {
     this.getAccessToken();
   }
