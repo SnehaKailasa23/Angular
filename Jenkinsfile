@@ -23,7 +23,7 @@ pipeline {
 		    sh """
 			   npm install 
 			   sudo ng build 
-			   sudo ng serve
+//			   sudo ng serve
 			"""
         }
 	}
@@ -39,9 +39,10 @@ pipeline {
 		steps 
 		{
 		    sh """
+         ls
 			   npm install 
 			   sudo ng build 
-			   sudo ng serve
+//			   sudo ng serve
 			"""
         }
 	}
