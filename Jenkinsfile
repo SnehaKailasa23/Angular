@@ -22,7 +22,44 @@ pipeline {
 		{
 		    sh """
 			   npm install 
-			   sudo ng build 
+			   sudo ng build --prod --env=dev
+			   scp -r ./dist/ user@your.server.example.com:/var/www/html/
+			"""
+        }
+	}
+	stage('staging') 
+	{
+		when 
+		{
+			anyOf 
+			{
+			branch 'staging';
+			}
+		}
+		steps 
+		{
+		    sh """
+			   npm install 
+			   sudo ng build --prod --env=
+			   scp -r ./dist/ user@your.server.example.com:/var/www/html/
+			"""
+        }
+	}
+	stage('QA') 
+	{
+		when 
+		{
+			anyOf 
+			{
+			branch 'qa';
+			}
+		}
+		steps 
+		{
+		    sh """
+			   npm install 
+			   sudo ng build --prod --env=qa
+			   scp -r ./dist/ user@your.server.example.com:/var/www/html/
 			"""
         }
 	}
@@ -39,7 +76,8 @@ pipeline {
 		{
 		    sh """
 			   npm install 
-			   sudo ng build --prod
+			   sudo ng build --prod --env=prod
+			   scp -r ./dist/ user@your.server.example.com:/var/www/html/
 			"""
         }
 	}
